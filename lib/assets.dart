@@ -1,1 +1,1 @@
-String stone = "asset/bts/avatar/inde2.jpeg";
+String stone = "asset/bts_avatar/inde.jpeg";
