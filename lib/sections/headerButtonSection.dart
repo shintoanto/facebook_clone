@@ -35,6 +35,7 @@ class HeaderButtonSection extends StatelessWidget {
               buttonIcon: Icons.video_call,
               color: Colors.red,
               buttonText: "Live"),
+          //Vertical divider.
           verticaDivider,
           headerButton(
               buttonAction: () {
@@ -50,7 +51,7 @@ class HeaderButtonSection extends StatelessWidget {
               },
               buttonIcon: Icons.video_call,
               color: Colors.purple,
-              buttonText: "Chat room")
+              buttonText: "Chat")
         ],
       ),
     );

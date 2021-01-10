@@ -1,7 +1,8 @@
 import 'package:facebook_clone/sections/roomSection.dart';
 import 'package:facebook_clone/sections/statusSection.dart';
+import 'package:facebook_clone/sections/storySection.dart';
 import 'package:flutter/material.dart';
-import 'package:facebook_clone/widgets/appBarButton.dart';
+import 'package:facebook_clone/widgets/circularButton.dart';
 import 'package:facebook_clone/sections/headerButtonSection.dart';
 
 class Home extends StatelessWidget {
@@ -28,13 +29,13 @@ class Home extends StatelessWidget {
             ),
           ),
           actions: <Widget>[
-            AppBarButton(
+            CircularButton(
               buttonIcon: Icons.search,
               buttonAction: () {
                 print("Search Button...");
               },
             ),
-            AppBarButton(
+            CircularButton(
               buttonIcon: Icons.chat,
               buttonAction: () {
                 print("Chat icon button...");
@@ -44,12 +45,19 @@ class Home extends StatelessWidget {
         ),
         body: ListView(
           children: <Widget>[
+            //Showing status bar
             StatusSection(),
+            //This is a divider.
             thinDivider,
+            //Header buttons.
             HeaderButtonSection(),
+            //This is a divider.
             thickDivider,
             RoomSection(),
+            //This is a divider.
             thickDivider,
+            //Showing story section.
+            StorySection(),
           ],
         ),
       ),
