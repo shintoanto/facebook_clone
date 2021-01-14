@@ -4,20 +4,25 @@ import 'package:flutter/material.dart';
 class Avatar extends StatelessWidget {
   final String displayImage;
   final bool displayStatus;
+  final bool displayBoarder;
   Avatar({
     @required this.displayImage,
     @required this.displayStatus,
+    this.displayBoarder = false,
   });
   @override
   Widget build(BuildContext context) {
-    // Widget statusIndicator;
-    // if (statusIndicator == true) {
-    // statusIndicator =
-    // } else {
-    //   statusIndicator = SizedBox();
-    // }
     return Stack(children: <Widget>[
       Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: displayBoarder
+              ? Border.all(
+                  color: Colors.blueAccent,
+                  width: 3,
+                )
+              : Border(),
+        ),
         padding: EdgeInsets.only(
           left: 4,
           right: 4,

@@ -1,6 +1,8 @@
+import 'package:facebook_clone/assets.dart';
 import 'package:facebook_clone/sections/roomSection.dart';
 import 'package:facebook_clone/sections/statusSection.dart';
 import 'package:facebook_clone/sections/storySection.dart';
+import 'package:facebook_clone/widgets/postCard.dart';
 import 'package:flutter/material.dart';
 import 'package:facebook_clone/widgets/circularButton.dart';
 import 'package:facebook_clone/sections/headerButtonSection.dart';
@@ -58,6 +60,16 @@ class Home extends StatelessWidget {
             thickDivider,
             //Showing story section.
             StorySection(),
+            thickDivider,
+            PostCard(
+              name: "Mohanlal",
+              avatar: stone,
+              publishedAt: "7h",
+              //show specified.
+              showBlueTick: true,
+              postTitle: "Happy Diwali",
+              postImage: stone,
+            ),
           ],
         ),
       ),
