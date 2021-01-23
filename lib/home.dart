@@ -1,11 +1,12 @@
 import 'package:facebook_clone/assets.dart';
+import 'package:facebook_clone/sections/headerButtonSection.dart';
 import 'package:facebook_clone/sections/roomSection.dart';
 import 'package:facebook_clone/sections/statusSection.dart';
 import 'package:facebook_clone/sections/storySection.dart';
+import 'package:facebook_clone/widgets/headerButton.dart';
 import 'package:facebook_clone/widgets/postCard.dart';
 import 'package:flutter/material.dart';
 import 'package:facebook_clone/widgets/circularButton.dart';
-import 'package:facebook_clone/sections/headerButtonSection.dart';
 
 class Home extends StatelessWidget {
   Widget thinDivider = Divider(
@@ -52,7 +53,21 @@ class Home extends StatelessWidget {
             //This is a divider.
             thinDivider,
             //Header buttons.
-            HeaderButtonSection(),
+            HeaderButtonSection(
+              buttonOne: headerButton(
+                buttonText: "Live",
+                buttonIcon: Icons.video_call,
+                color: Colors.red[400],
+              ),
+              buttonTwo: headerButton(
+                  buttonText: "Photo",
+                  buttonIcon: Icons.photo_library,
+                  color: Colors.green),
+              buttonThree: headerButton(
+                  buttonText: "Room",
+                  buttonIcon: Icons.videocam,
+                  color: Colors.blue),
+            ),
             //This is a divider.
             thickDivider,
             RoomSection(),
@@ -68,8 +83,10 @@ class Home extends StatelessWidget {
               //show specified.
               showBlueTick: true,
               postTitle: "Happy Diwali",
-              postImage: stone,
+              postImage: stone, commentCount: "1K", likeCount: "10K",
+              shareCount: "1K",
             ),
+            thickDivider,
           ],
         ),
       ),

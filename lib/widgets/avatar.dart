@@ -5,11 +5,14 @@ class Avatar extends StatelessWidget {
   final String displayImage;
   final bool displayStatus;
   final bool displayBoarder;
-  Avatar({
-    @required this.displayImage,
-    @required this.displayStatus,
-    this.displayBoarder = false,
-  });
+  final double width;
+  final double height;
+  Avatar(
+      {@required this.displayImage,
+      @required this.displayStatus,
+      this.displayBoarder = false,
+      this.width = 50,
+      this.height = 50});
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
@@ -31,8 +34,9 @@ class Avatar extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
           child: Image.asset(
             stone,
-            width: 50,
-            height: 50,
+            fit: BoxFit.cover,
+            width: width,
+            height: height,
           ),
         ),
       ),

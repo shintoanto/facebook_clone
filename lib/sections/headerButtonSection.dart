@@ -1,28 +1,23 @@
+import 'package:facebook_clone/widgets/headerButton.dart';
 import 'package:flutter/material.dart';
 
 class HeaderButtonSection extends StatelessWidget {
-  Widget verticaDivider = VerticalDivider(
-    thickness: 2,
-    color: Colors.grey[200],
-  );
-  Widget headerButton(
-      {@required String buttonText,
-      @required IconData buttonIcon,
-      void Function() buttonAction,
-      @required Color color}) {
-    return FlatButton.icon(
-        onPressed: () {
-          print(buttonText);
-        },
-        icon: Icon(
-          Icons.video_call,
-          color: color,
-        ),
-        label: Text(buttonText));
-  }
+  final Widget buttonOne;
+  final Widget buttonTwo;
+  final Widget buttonThree;
+  HeaderButtonSection({
+    @required this.buttonOne,
+    @required this.buttonTwo,
+    @required this.buttonThree,
+  });
 
   @override
   Widget build(BuildContext context) {
+    Widget verticaDivider = VerticalDivider(
+      thickness: 2,
+      color: Colors.grey[200],
+    );
+
     return Container(
       height: 40,
       child: Row(

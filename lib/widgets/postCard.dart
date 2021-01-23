@@ -1,6 +1,8 @@
 import 'package:facebook_clone/assets.dart';
+import 'package:facebook_clone/sections/headerButtonSection.dart';
 import 'package:facebook_clone/widgets/avatar.dart';
 import 'package:facebook_clone/widgets/blueTick.dart';
+import 'package:facebook_clone/widgets/headerButton.dart';
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
@@ -10,6 +12,10 @@ class PostCard extends StatelessWidget {
   final String postTitle;
   final String postImage;
   final bool showBlueTick;
+  final String likeCount;
+  final String commentCount;
+  final String shareCount;
+
   PostCard({
     @required this.postImage,
     @required this.postTitle,
@@ -17,16 +23,38 @@ class PostCard extends StatelessWidget {
     @required this.name,
     @required this.avatar,
     this.showBlueTick = false,
+    @required this.likeCount,
+    @required this.commentCount,
+    @required this.shareCount,
   });
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(children: <Widget>[
-        postCardStory(),
-        titleSection(),
-        imageSection(),
-        footerSection(),
-      ]),
+      child: Column(
+        children: <Widget>[
+          postCardStory(),
+          titleSection(),
+          imageSection(),
+          footerSection(),
+          Divider(
+            thickness: 1.5,
+          ),
+          HeaderButtonSection(
+            buttonOne: headerButton(
+                buttonText: "Like",
+                buttonIcon: Icons.thumb_up,
+                color: Colors.grey),
+            buttonTwo: headerButton(
+                buttonText: "Comment",
+                buttonIcon: Icons.message,
+                color: Colors.grey),
+            buttonThree: headerButton(
+                buttonText: "Share",
+                buttonIcon: Icons.share,
+                color: Colors.grey),
+          ),
+        ],
+      ),
     );
   }
 
@@ -36,7 +64,9 @@ class PostCard extends StatelessWidget {
         top: 5,
         bottom: 5,
       ),
-      child: Image.asset(postImage),
+      child: Image.asset(
+        postImage,
+      ),
     );
   }
 
@@ -82,7 +112,7 @@ class PostCard extends StatelessWidget {
                   width: 10,
                 ),
                 displayText(
-                  label: "10k",
+                  label: likeCount,
                 ),
               ],
             ),
@@ -91,7 +121,7 @@ class PostCard extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 displayText(
-                  label: "1k",
+                  label: commentCount,
                 ),
                 SizedBox(
                   width: 5,
@@ -103,13 +133,28 @@ class PostCard extends StatelessWidget {
                   width: 5,
                 ),
                 displayText(
-                  label: "700",
+                  label: shareCount,
                 ),
                 SizedBox(
                   width: 5,
                 ),
                 displayText(
                   label: "Shares",
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Avatar(
+                  displayImage: stone,
+                  displayStatus: false,
+                  width: 25,
+                  height: 25,
+                ),
+                IconButton(
+                  icon: Icon(Icons.arrow_drop_down),
+                  onPressed: () {
+                    print("Drop down arrow is pressed");
+                  },
                 ),
               ],
             ),
